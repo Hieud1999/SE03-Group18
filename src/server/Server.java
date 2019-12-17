@@ -13,11 +13,11 @@ public class Server {
   private int port;
   private List<User> clients;
   private ServerSocket server;
-private Scanner scanner;
+  private Scanner scanner;
 
   public static void main(String[] args) throws IOException {
 	 
-    new Server(8791).run();
+    new Server(8790).run();
   }
 
   public Server(int port) { 
@@ -107,164 +107,6 @@ private Scanner scanner;
     }
   }
 }
-
-//class UserHandler implements Runnable {
-//	
-//	private static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();
-//
-//  private Server server;
-//  private User user;
-//  private BufferedReader in;
-//  private PrintWriter out;
-//  private Socket socket;
-//  private String name;
-//  
-////  public UserHandler(Socket socket) {
-////	  this.socket = socket;
-////  }
-//
-//  public UserHandler(Server server, User user) {
-//    this.server = server;
-//    this.user = user;
-//    this.server.broadcastAllUsers();
-//  }
-//
-//  public void run() {
-////	try {
-////		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-////		out = new PrintWriter(socket.getOutputStream(), true);
-////		
-////		writers.add(out);
-////		
-////		while (true) {
-////            String input = in.readLine();
-////            if (input == null) {
-////                return;
-////            }else if(input.startsWith("Sent a file: ")){
-////                for (PrintWriter writer : writers) {
-////                    writer.println( name + input.split("Sent a file: "));
-////                }
-////            }
-////		}
-////            
-////	} catch (IOException e1) {
-////		
-////		e1.printStackTrace();
-////	}
-//    String message;
-//
-//    // when there is a new message, broadcast to all
-//    Scanner sc = new Scanner(this.user.getInputStream());
-//    while (sc.hasNextLine()) {
-//      message = sc.nextLine();
-//
-//      // smiley
-//      message = message.replace(":)", "<img src='http://4.bp.blogspot.com/-ZgtYQpXq0Yo/UZEDl_PJLhI/AAAAAAAADnk/2pgkDG-nlGs/s1600/facebook-smiley-face-for-comments.png'>");
-//      message = message.replace(":D", "<img src='http://2.bp.blogspot.com/-OsnLCK0vg6Y/UZD8pZha0NI/AAAAAAAADnY/sViYKsYof-w/s1600/big-smile-emoticon-for-facebook.png'>");
-//      message = message.replace(":d", "<img src='http://2.bp.blogspot.com/-OsnLCK0vg6Y/UZD8pZha0NI/AAAAAAAADnY/sViYKsYof-w/s1600/big-smile-emoticon-for-facebook.png'>");
-//      message = message.replace(":(", "<img src='http://2.bp.blogspot.com/-rnfZUujszZI/UZEFYJ269-I/AAAAAAAADnw/BbB-v_QWo1w/s1600/facebook-frown-emoticon.png'>");
-//      message = message.replace("-_-", "<img src='http://3.bp.blogspot.com/-wn2wPLAukW8/U1vy7Ol5aEI/AAAAAAAAGq0/f7C6-otIDY0/s1600/squinting-emoticon.png'>");
-//      message = message.replace(";)", "<img src='http://1.bp.blogspot.com/-lX5leyrnSb4/Tv5TjIVEKfI/AAAAAAAAAi0/GR6QxObL5kM/s400/wink%2Bemoticon.png'>");
-//      message = message.replace(":P", "<img src='http://4.bp.blogspot.com/-bTF2qiAqvi0/UZCuIO7xbOI/AAAAAAAADnI/GVx0hhhmM40/s1600/facebook-tongue-out-emoticon.png'>");
-//      message = message.replace(":p", "<img src='http://4.bp.blogspot.com/-bTF2qiAqvi0/UZCuIO7xbOI/AAAAAAAADnI/GVx0hhhmM40/s1600/facebook-tongue-out-emoticon.png'>");
-//      message = message.replace(":o", "<img src='http://1.bp.blogspot.com/-MB8OSM9zcmM/TvitChHcRRI/AAAAAAAAAiE/kdA6RbnbzFU/s400/surprised%2Bemoticon.png'>");
-//      message = message.replace(":O", "<img src='http://1.bp.blogspot.com/-MB8OSM9zcmM/TvitChHcRRI/AAAAAAAAAiE/kdA6RbnbzFU/s400/surprised%2Bemoticon.png'>");
-//
-//      if (message.charAt(0) == '@'){
-//        if(message.contains(" ")){
-//          System.out.println("private msg : " + message);
-//          int firstSpace = message.indexOf(" ");
-//          String userPrivate= message.substring(1, firstSpace);
-//          server.sendMessageToUser(
-//              message.substring(
-//                firstSpace+1, message.length()
-//                ), user, userPrivate
-//              );
-//        }
-//
-//      }else if (message.charAt(0) == '#'){
-//        user.changeColor(message);
-//        // update color for all other users
-//        this.server.broadcastAllUsers();
-//      }else{
-//        // update user list
-//        server.broadcastMessages(message, user);
-//      }
-//    }
-//    // end of Thread
-//    server.removeUser(user);
-//    this.server.broadcastAllUsers();
-//    sc.close();
-//    
-//    
-//    try {
-//    	
-//    }catch (Exception e) {
-//		
-//	}    	
-//  }
-//}
-
-//class User {
-//  private static int nbUser = 0;
-//  private int userId;
-//  private PrintStream streamOut;
-//  private InputStream streamIn;
-//  private String nickname;
-//  private Socket client;
-//  private String color;
-//
-//  // constructor
-//  public User(Socket client, String name) throws IOException {
-//    this.streamOut = new PrintStream(client.getOutputStream());
-//    this.streamIn = client.getInputStream();
-//    this.client = client;
-//    this.nickname = name;
-//    this.userId = nbUser;
-//    this.color = ColorInt.getColor(this.userId);
-//    nbUser += 1;
-//  }
-//
-//  // change color user
-//  public void changeColor(String hexColor){
-//    // check if it's a valid hexColor
-//    Pattern colorPattern = Pattern.compile("#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})");
-//    Matcher m = colorPattern.matcher(hexColor);
-//    if (m.matches()){
-//      Color c = Color.decode(hexColor);
-//      // if the Color is too Bright don't change
-//      double luma = 0.2126 * c.getRed() + 0.7152 * c.getGreen() + 0.0722 * c.getBlue(); // per ITU-R BT.709
-//      if (luma > 160) {
-//        this.getOutStream().println("<b>Color Too Bright</b>");
-//        return;
-//      }
-//      this.color = hexColor;
-//      this.getOutStream().println("<b>Color changed successfully</b> " + this.toString());
-//      return;
-//    }
-//    this.getOutStream().println("<b>Failed to change color</b>");
-//  }
-//
-//  public PrintStream getOutStream(){
-//    return this.streamOut;
-//  }
-//
-//  public InputStream getInputStream(){
-//    return this.streamIn;
-//  }
-//
-//  public String getNickname(){
-//    return this.nickname;
-//  }
-//
-//  // print user with his color
-//  public String toString(){
-//
-//    return "<u><span style='color:"+ this.color
-//      +"'>" + this.getNickname() + "</span></u>";
-//
-//  }
-//}
 
 class ColorInt {
     public static String[] mColors = {
