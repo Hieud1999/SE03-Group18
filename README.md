@@ -16,10 +16,10 @@ Repository của nhóm 18 lớp công nghệ phần mềm SE03
 ### -Java
 ### -Java Swing
 # Hướng dẫn sử dụng
-## Đầu tiên, chúng ta cần chạy Server, sau đó khởi chạy Client (khuyến cáo nên dùng Eclipse). Mỗi Client tương ứng vói một người dùng.
-## Vào giao diện người dùng, nhập địa chỉ Server ở ô đầu tiên và port kết nối đến Server ở ô thứ 2 (ở đây đã để mặc định là localhost và 8790).Tiếp theo, nhập tên muốn hiển thị với mọi người, sau đó bấm Connect.
-## Các chỉ dẫn tiếp theo để sử dụng phần mềm xin vui lòng đọc trong cửa sổ giao diện người.
+### Đầu tiên, chúng ta cần chạy Server, sau đó khởi chạy Client (khuyến cáo nên dùng Eclipse). Mỗi Client tương ứng vói một người dùng.
+### Vào giao diện người dùng, nhập địa chỉ Server ở ô đầu tiên và port kết nối đến Server ở ô thứ 2 (ở đây đã để mặc định là localhost và 8790).Tiếp theo, nhập tên muốn hiển thị với mọi người, sau đó bấm Connect.
+### Các chỉ dẫn tiếp theo để sử dụng phần mềm xin vui lòng đọc trong cửa sổ giao diện người.
 # Định hướng phát triển
-## Liên kết đến database để tạo thêm các tính năng như đăng kí/đăng nhập tài khoản, thêm bạn bè, tạo hộp chat riêng, tra cứu lịch sử tin nhắn...
-## Khắc phục các lỗi còn tồn đọng trong quá trình phát triển phần mềm.
+### Liên kết đến database để tạo thêm các tính năng như đăng kí/đăng nhập tài khoản, thêm bạn bè, tạo hộp chat riêng, tra cứu lịch sử tin nhắn...
+### Khắc phục các lỗi còn tồn đọng trong quá trình phát triển phần mềm.
 ## 
